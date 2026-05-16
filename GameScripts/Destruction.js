@@ -10,6 +10,7 @@ let DestructionMilestone4 = document.getElementById("DestructionMilestone4");
 let DestructionMilestone5 = document.getElementById("DestructionMilestone5");
 let DestructionMilestone6 = document.getElementById("DestructionMilestone6");
 let DestructionMilestone7 = document.getElementById("DestructionMilestone7");
+let DestructionMilestone8 = document.getElementById("DestructionMilestone8");
 
 let ConstructionEnergyDisplayTxt = document.getElementById("ConstructionEnergyDisplayTxt");
 let ConstructionEnergyFirstBoosttxt = document.getElementById("ConstructionEnergyFirstBoosttxt")
@@ -59,6 +60,11 @@ function updateHtml() {
     DestructionMilestone7.style.color = (Data.Destructions.gte(8)) ? "black" : "red"
     DestructionMilestone7.style.display = (Data.Destructions.gte(6)) ? "block" : "none"
 
+    DestructionMilestone8.style.backgroundColor = (Data.Destructions.gte(10)) ? "red" : "black"
+    DestructionMilestone8.style.borderColor = (Data.Destructions.gte(10)) ? "gray" : "red"
+    DestructionMilestone8.style.color = (Data.Destructions.gte(10)) ? "black" : "red"
+    DestructionMilestone8.style.display = (Data.Destructions.gte(8)) ? "block" : "none"
+
     ConstructionEnergyDisplayTxt.textContent = `You have ${format(Data.ConstructionEnergy)} Construction Energy [+${format(Data.ConstructionEnergyMult)}/s]`
     ConstructionEnergyFirstBoosttxt.textContent = `${format(CalcConstructionEnergyFirstBoost())}x Shards`
 }
@@ -86,6 +92,11 @@ function autobuyUpgrades() {
     if (Data.Destructions.gte(4) && Data.Settings.AutobuyShardUpgs == true) {
         buyUpg(1, "shards", spendShards)
         buyUpg(2, "shards", spendShards)
+    }
+
+    if (Data.Destructions.gte(10) && Data.Settings.AutobuyConstructionUpgs == true) {
+        buyUpg(3, "constructionPoints", spendConstructionPoints)
+        buyUpg(4, "constructionPoints", spendConstructionPoints)
     }
 }
 
