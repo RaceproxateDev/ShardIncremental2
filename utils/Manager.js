@@ -63,3 +63,15 @@ function ShowHideUpgradeSections(sectionId) {
         }
     }
 }
+
+function ShowHideSubDivs(divId) {
+    let divs = document.getElementsByClassName("subcontent")
+
+    for (let i = 0; i < divs.length; i++) {
+        if (divs[i].id === divId) {
+            divs[i].style.display = "block"
+        } else {
+            divs[i].style.display = "none"
+        }
+    }
+}

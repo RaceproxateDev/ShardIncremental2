@@ -18,9 +18,12 @@
         
         <div class="content" id="Settings" style="display: none;">
             <h3 style="text-align: center;">Settings</h3>
+            <h3>[Data]</h3>
             <button class="SettingsButtons" style="background-color: black; border: 2px solid blue; color: blue;" onclick="exportData()">Export Save</button>
             <button class="SettingsButtons" style="background-color: black; border: 2px solid lightblue; color: lightblue;" onclick="ImportData()">Import Save</button>
-            <button class="SettingsButtons" style="background-color: black; border: 2px solid red; color: red;" onclick="resetData()">Hard Reset</button>
+            <button class="SettingsButtons" style="background-color: black; border: 2px solid red; color: red;" onclick="resetData()">Hard Reset</button><br>
+
+            <h3>[Automation]</h3>
         </div>
 
         <div class="content" id="ShardUpgradesContent" style="display: none;">
@@ -43,9 +46,18 @@
             </section>
         </div>
 
-        <div class="content" id="ConstructionResetContent" style="display: none; text-align: center;">
+        <div class="content" id="ConstructionResetContent" style="display: none;">
             <h3 style="text-align: center;">Construction</h3>
-            <button class="subtabs" id="ConstructionResetSubtab">Reset</button>
+            <section style="text-align: center;">
+                <button class="subtabs" id="ConstructionResetSubtab" onclick="ShowHideSubDivs('ConstructionResetLayer')">Reset</button>
+            </section>
+
+            <div class="subcontent" id="ConstructionResetLayer" style="display: none; text-align: center;">
+               <h2>Construct</h2>
+               <p>It resets shards and shard upgrades</p>
+               <h3 id="CalcConstructionGainTxt">You will gain 0 Construction Points after resetting</h3>
+               <button class="ResetlayerButton">Construct</button>
+            </div>
         </div>
     </body>
 
@@ -58,4 +70,5 @@
     <script src="GameScripts/shards.js"></script>
     <script src="GameScripts/UnlockNext.js"></script>
     <script src="utils/UnlockContent.js"></script>
+    <script src="GameScripts/construction.js"></script>
 </html>
