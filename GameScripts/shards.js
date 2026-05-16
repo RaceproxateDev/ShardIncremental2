@@ -26,6 +26,7 @@ function calcShardMult() {
     let mult = new OmegaNum(1)
     mult = mult.times(OmegaNum.add(1, Data.Buyables[1].amount))
     mult = mult.times(OmegaNum.pow(2, Data.Buyables[2].amount))
+    mult = mult.times(OmegaNum.pow(2, Data.Buyables[3].amount))
 
     Data.shardMult = mult
     return mult

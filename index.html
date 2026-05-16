@@ -14,6 +14,7 @@
             <button id="SettingsTab" class="tabs" onclick="ShowHideDivs('Settings')">Settings</button>
             <button id="ShardUpgradesTab" class="tabs" onclick="ShowHideDivs('ShardUpgradesContent')">Shard Upgrades</button>
             <button id="ConstructionResetTab" class="tabs" onclick="ShowHideDivs('ConstructionResetContent')" style="display: none;">Construction</button>
+            <button id="DestructionResetTab" class="tabs" onclick="ShowHideDivs('DestructionResetContent')" style="display: none; border-color: red; color: red;">Destruction</button>
         </section>
         
         <div class="content" id="Settings" style="display: none;">
@@ -21,7 +22,8 @@
             <h3>[Data]</h3>
             <button class="SettingsButtons" style="background-color: black; border: 2px solid blue; color: blue;" onclick="exportData()">Export Save</button>
             <button class="SettingsButtons" style="background-color: black; border: 2px solid lightblue; color: lightblue;" onclick="ImportData()">Import Save</button>
-            <button class="SettingsButtons" style="background-color: black; border: 2px solid red; color: red;" onclick="resetData()">Hard Reset</button><br>
+            <button class="SettingsButtons" style="background-color: black; border: 2px solid red; color: red;" onclick="resetData()">Hard Reset</button>
+            <button class="SettingsButtons" style="background-color: black; border: 2px solid green; color: green;" onclick="save()">Save</button><br>
 
             <h3>[Automation]</h3>
         </div>
@@ -50,14 +52,44 @@
             <h3 style="text-align: center;">Construction</h3>
             <section style="text-align: center;">
                 <button class="subtabs" id="ConstructionResetSubtab" onclick="ShowHideSubDivs('ConstructionResetLayer')">Reset</button>
+                <button class="subtabs" id="ConstructionUpgradesSubtab" onclick="ShowHideSubDivs('ConstructionUpgrades')">Upgrades</button>
             </section>
 
             <div class="subcontent" id="ConstructionResetLayer" style="display: none; text-align: center;">
                <h2>Construct</h2>
                <p>It resets shards and shard upgrades</p>
                <h3 id="CalcConstructionGainTxt">You will gain 0 Construction Points after resetting</h3>
-               <button class="ResetlayerButton">Construct</button>
+               <button class="ResetlayerButton" id="ConstructionRLbutton" onclick="constructReset(false)">Construct</button>
             </div>
+
+            <div class="subcontent" id="ConstructionUpgrades" style="display: none;">
+                <h2 id="ConstructionPointsDisplayTxt" style="text-align: center;">Construction Upgrades [You have 0 Construction Points]</h2>
+                
+                <button class="UpgradesButtons" onclick="ShowHideUpgradeSections('MoreShardsIIISection')">More Shards III</button>
+                <button class="UpgradesButtons" onclick="ShowHideUpgradeSections('MoreConstructionISection')" style="width: 110px; height: 110px;">More Construction I</button>
+
+                <br><br>
+
+                <section class="UpgradeSection" id="MoreShardsIIISection" style="display: none;">
+                    <h3 id="BuyableMoreShardsIIILvlTxt">More Shards III [0/100]</h3>
+                    <p>Doubles your shard gain again</p>
+                    <button class="UpgradePurchaseButton" id="MoreShardsIIIPurchaseButton" onclick="buyUpg(3, 'constructionPoints', true)">1 Construction Point</button><br><br>
+                </section>
+
+                <section class="UpgradeSection" id="MoreConstructionISection" style="display: none;">
+                    <h3 id="BuyableMoreConstructionILvlTxt">More Construction I [0/100]</h3>
+                    <p>+100% Construction Points</p>
+                    <button class="UpgradePurchaseButton" id="MoreConstructionIPurchaseButton" onclick="buyUpg(4, 'constructionPoints', true)">5 Construction Points</button><br><br>
+                </section>
+            </div>
+        </div>
+
+        <div class="content" id="DestructionResetContent" style="display: none;">
+            <h3 style="text-align: center; color: red;">Destroy</h3>
+            <p style="text-align: center; color: red;">Destroying will reset: shards, shard upgrades, construction points and construction upgrades</p>
+            <h3 id="CalcDestructionReqTxt" style="text-align: center;">You need 10 Construction Points to Destroy</h3>
+
+            <button class="ResetlayerButton" id="DestructionRLbutton" style="background-color: black; border: 2px solid red; color: red; width: 100%;" onclick="DestructionReset(false)">Destroy</button>
         </div>
     </body>
 
