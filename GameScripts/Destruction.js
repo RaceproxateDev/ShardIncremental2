@@ -31,6 +31,11 @@ function updateHtml() {
     DestructionMilestone3.style.backgroundColor = (Data.Destructions.gte(3)) ? "red" : "black"
     DestructionMilestone3.style.borderColor = (Data.Destructions.gte(3)) ? "gray" : "red"
     DestructionMilestone3.style.color = (Data.Destructions.gte(3)) ? "black" : "red"
+
+    DestructionMilestone4.style.backgroundColor = (Data.Destructions.gte(4)) ? "red" : "black"
+    DestructionMilestone4.style.borderColor = (Data.Destructions.gte(4)) ? "gray" : "red"
+    DestructionMilestone4.style.color = (Data.Destructions.gte(4)) ? "black" : "red"
+    DestructionMilestone4.style.display = (Data.Destructions.gte(3)) ? "block" : "none"
 }
 
 function DestructionReset(force) {
