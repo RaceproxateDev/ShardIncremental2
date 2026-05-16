@@ -13,6 +13,10 @@ let DestructionMilestone7 = document.getElementById("DestructionMilestone7");
 let DestructionMilestone8 = document.getElementById("DestructionMilestone8");
 let DestructionMilestone9 = document.getElementById("DestructionMilestone9");
 let DestructionMilestone10 = document.getElementById("DestructionMilestone10");
+let DestructionMilestone11 = document.getElementById("DestructionMilestone11");
+let DestructionMilestone12 = document.getElementById("DestructionMilestone12");
+let DestructionMilestone13 = document.getElementById("DestructionMilestone13");
+let DestructionMilestone14 = document.getElementById("DestructionMilestone14");
 
 let ConstructionEnergyDisplayTxt = document.getElementById("ConstructionEnergyDisplayTxt");
 let ConstructionEnergyFirstBoosttxt = document.getElementById("ConstructionEnergyFirstBoosttxt")
@@ -77,6 +81,26 @@ function updateHtml() {
     DestructionMilestone10.style.color = (Data.Destructions.gte(15)) ? "black" : "red"
     DestructionMilestone10.style.display = (Data.Destructions.gte(13)) ? "block" : "none"
 
+    DestructionMilestone11.style.backgroundColor = (Data.Destructions.gte(18)) ? "red" : "black"
+    DestructionMilestone11.style.borderColor = (Data.Destructions.gte(18)) ? "gray" : "red"
+    DestructionMilestone11.style.color = (Data.Destructions.gte(18)) ? "black" : "red"
+    DestructionMilestone11.style.display = (Data.Destructions.gte(15)) ? "block" : "none"
+
+    DestructionMilestone12.style.backgroundColor = (Data.Destructions.gte(22)) ? "red" : "black"
+    DestructionMilestone12.style.borderColor = (Data.Destructions.gte(22)) ? "gray" : "red"
+    DestructionMilestone12.style.color = (Data.Destructions.gte(22)) ? "black" : "red"
+    DestructionMilestone12.style.display = (Data.Destructions.gte(18)) ? "block" : "none"
+
+    DestructionMilestone13.style.backgroundColor = (Data.Destructions.gte(25)) ? "red" : "black"
+    DestructionMilestone13.style.borderColor = (Data.Destructions.gte(25)) ? "gray" : "red"
+    DestructionMilestone13.style.color = (Data.Destructions.gte(25)) ? "black" : "red"
+    DestructionMilestone13.style.display = (Data.Destructions.gte(22)) ? "block" : "none"
+
+    DestructionMilestone14.style.backgroundColor = (Data.Destructions.gte(30)) ? "red" : "black"
+    DestructionMilestone14.style.borderColor = (Data.Destructions.gte(30)) ? "gray" : "red"
+    DestructionMilestone14.style.color = (Data.Destructions.gte(30)) ? "black" : "red"
+    DestructionMilestone14.style.display = (Data.Destructions.gte(25)) ? "block" : "none"
+
     ConstructionEnergyDisplayTxt.textContent = `You have ${format(Data.ConstructionEnergy)} Construction Energy [+${format(Data.ConstructionEnergyMult)}/s]`
     ConstructionEnergyFirstBoosttxt.textContent = `${format(CalcConstructionEnergyFirstBoost())}x Shards`
 }
@@ -125,6 +149,7 @@ function calcConstructionEnergyMult() {
     let mult = new OmegaNum(1)
     if (Data.Destructions.gte(8)) mult = mult.times(OmegaNum.add(1, OmegaNum.sub(Data.Destructions, 8)))
     if (Data.Destructions.gte(15)) mult = mult.times(3)
+    if (Data.Destructions.gte(22)) mult = mult.times(5)
 
     Data.ConstructionEnergyMult = mult
     return mult
@@ -141,6 +166,7 @@ function CalcConstructionEnergyFirstBoost() {
 function ConstructionPointsPassiveGain() {
     let p = new OmegaNum(0)
     if (Data.Destructions.gte(13)) p = p.add(0.01)
+    if (Data.Destructions.gte(18)) p = p.add(0.09)
 
     Data.constructionPoints = OmegaNum.add(Data.constructionPoints, Data.constructionStorage.mul(p))
     return p
