@@ -6,7 +6,7 @@ let DestructionDisplayTxt = document.getElementById("DestructionDisplayTxt")
 let DestructionMilestone1 = document.getElementById("DestructionMilestone1");
 
 function calcDestructionsBulk() {
-    let bulk = new OmegaNum(0);
+    let bulk = new OmegaNum(1);
 
     return bulk;
 }
