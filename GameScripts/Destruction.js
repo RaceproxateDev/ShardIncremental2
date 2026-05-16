@@ -94,10 +94,10 @@ function calcConstructionEnergyMult() {
 }
 
 function CalcConstructionEnergyFirstBoost() {
-    let exp = new OmegaNum(0.5)
+    let exp = new OmegaNum(0.3)
     let base = new OmegaNum(1)
 
-    let boost = Data.ConstructionEnergy.add(base).pow(exp)
+    let boost = Data.ConstructionEnergy.pow(exp).log10().add(base)
     return boost
 }
 
