@@ -16,7 +16,6 @@ function unlockNext() {
     if (Data.GameProgress.eq(0) && !hasContent("Construction")) {
         unlockNextTxt.textContent = `Get ${format(gameReqs.Construction)} Shards [${Data.shards.div(gameReqs.Construction).times(100).floor()}%]`
         grantStep("shards", "Construction")
-        Data.Unlocks.push("Construction")
     }
 }
 
