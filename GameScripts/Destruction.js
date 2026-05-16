@@ -25,13 +25,13 @@ function updateHtml() {
 
 function DestructionReset(force) {
     if (Data.constructionPoints.gte(Data.DestructionReq)) {
-        resetStats(5,0);
-        resetBuyables(5, 1);
-
         if (!force) {
             Data.Destructions = Data.Destructions.add(calcDestructionsBulk());
             Data.DestructionReq = Data.DestructionReq.mul(Data.DestructionScale);
         }
+
+        resetStats(5,0);
+        resetBuyables(5, 1);
 
         if (!hasContent("destruction")) {
             Data.Unlocks.push("destruction");
