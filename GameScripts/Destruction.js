@@ -45,7 +45,7 @@ function DestructionReset(force) {
             Data.DestructionReq = Data.DestructionReq.mul(Data.DestructionScale);
         }
 
-        resetStats(5,0);
+        resetStats(5, 0);
         resetBuyables(5, 1);
 
         if (!hasContent("destruction")) {
@@ -54,6 +54,17 @@ function DestructionReset(force) {
     }
 }
 
+function autobuyUpgrades() {
+    let spendShards = true
+    let spendConstructionPoints = true
+
+    if (Data.Destructions.gte(4) && Data.Settings.AutobuyShardUpgs == true) {
+        buyUpg(1, "shards", spendShards)
+        buyUpg(2, "shards", spendShards)
+    }
+}
+
 setInterval(() => {
     updateHtml();
+    autobuyUpgrades();
 }, 100)
