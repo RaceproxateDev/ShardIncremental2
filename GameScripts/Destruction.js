@@ -11,6 +11,8 @@ let DestructionMilestone5 = document.getElementById("DestructionMilestone5");
 let DestructionMilestone6 = document.getElementById("DestructionMilestone6");
 let DestructionMilestone7 = document.getElementById("DestructionMilestone7");
 let DestructionMilestone8 = document.getElementById("DestructionMilestone8");
+let DestructionMilestone9 = document.getElementById("DestructionMilestone9");
+let DestructionMilestone10 = document.getElementById("DestructionMilestone10");
 
 let ConstructionEnergyDisplayTxt = document.getElementById("ConstructionEnergyDisplayTxt");
 let ConstructionEnergyFirstBoosttxt = document.getElementById("ConstructionEnergyFirstBoosttxt")
@@ -65,6 +67,16 @@ function updateHtml() {
     DestructionMilestone8.style.color = (Data.Destructions.gte(10)) ? "black" : "red"
     DestructionMilestone8.style.display = (Data.Destructions.gte(8)) ? "block" : "none"
 
+    DestructionMilestone9.style.backgroundColor = (Data.Destructions.gte(13)) ? "red" : "black"
+    DestructionMilestone9.style.borderColor = (Data.Destructions.gte(13)) ? "gray" : "red"
+    DestructionMilestone9.style.color = (Data.Destructions.gte(13)) ? "black" : "red"
+    DestructionMilestone9.style.display = (Data.Destructions.gte(10)) ? "block" : "none"
+
+    DestructionMilestone10.style.backgroundColor = (Data.Destructions.gte(15)) ? "red" : "black"
+    DestructionMilestone10.style.borderColor = (Data.Destructions.gte(15)) ? "gray" : "red"
+    DestructionMilestone10.style.color = (Data.Destructions.gte(15)) ? "black" : "red"
+    DestructionMilestone10.style.display = (Data.Destructions.gte(13)) ? "block" : "none"
+
     ConstructionEnergyDisplayTxt.textContent = `You have ${format(Data.ConstructionEnergy)} Construction Energy [+${format(Data.ConstructionEnergyMult)}/s]`
     ConstructionEnergyFirstBoosttxt.textContent = `${format(CalcConstructionEnergyFirstBoost())}x Shards`
 }
@@ -112,7 +124,7 @@ function GenConstructionEnergy() {
 function calcConstructionEnergyMult() {
     let mult = new OmegaNum(1)
     if (Data.Destructions.gte(8)) mult = mult.times(OmegaNum.add(1, OmegaNum.sub(Data.Destructions, 8)))
-
+    if (Data.Destructions.gte(15)) mult = mult.times(3)
 
     Data.ConstructionEnergyMult = mult
     return mult
@@ -126,6 +138,14 @@ function CalcConstructionEnergyFirstBoost() {
     return boost
 }
 
+function ConstructionPointsPassiveGain() {
+    let p = new OmegaNum(0)
+    if (Data.Destructions.gte(13)) p = p.add(0.01)
+
+    Data.constructionPoints = OmegaNum.add(Data.constructionPoints, Data.constructionStorage.mul(p))
+    return p
+}
+
 setInterval(() => {
     updateHtml();
     autobuyUpgrades();
@@ -135,4 +155,5 @@ setInterval(() => {
 
 setInterval(() => {
     GenConstructionEnergy();
+    ConstructionPointsPassiveGain();
 }, 1000)

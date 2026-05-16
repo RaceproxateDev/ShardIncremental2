@@ -3,7 +3,7 @@ let unlockNextTxt = document.getElementById("UnlockNextTxt")
 let gameReqs = {
     Construction: new OmegaNum(1e3), // shards
     Destruction: new OmegaNum(10), // construction points
-    Restoration: new OmegaNum(15), // destructions
+    Restoration: new OmegaNum(30), // destructions
 }
 
 function grantStep(curr, req) {
