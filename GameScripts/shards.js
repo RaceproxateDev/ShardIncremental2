@@ -28,6 +28,7 @@ function calcShardMult() {
     mult = mult.times(OmegaNum.pow(2, Data.Buyables[2].amount))
     mult = mult.times(OmegaNum.pow(2, Data.Buyables[3].amount))
     if (Data.Destructions.gte(1)) mult = mult.times(OmegaNum.add(1, Data.Destructions))
+    if (Data.Destructions.gte(3)) mult = mult.times(2)
 
     Data.shardMult = mult
     return mult

@@ -2,9 +2,10 @@ let CalcDestructionReqTxt = document.getElementById("CalcDestructionReqTxt");
 let DestructionRLbutton = document.getElementById("DestructionRLbutton");
 
 // Milestones
-let DestructionDisplayTxt = document.getElementById("DestructionDisplayTxt")
+let DestructionDisplayTxt = document.getElementById("DestructionDisplayTxt");
 let DestructionMilestone1 = document.getElementById("DestructionMilestone1");
 let DestructionMilestone2 = document.getElementById("DestructionMilestone2");
+let DestructionMilestone3 = document.getElementById("DestructionMilestone3");
 
 function calcDestructionsBulk() {
     let bulk = new OmegaNum(1);
@@ -26,6 +27,10 @@ function updateHtml() {
     DestructionMilestone2.style.backgroundColor = (Data.Destructions.gte(2)) ? "red" : "black"
     DestructionMilestone2.style.borderColor = (Data.Destructions.gte(2)) ? "gray" : "red"
     DestructionMilestone2.style.color = (Data.Destructions.gte(2)) ? "black" : "red"
+
+    DestructionMilestone3.style.backgroundColor = (Data.Destructions.gte(3)) ? "red" : "black"
+    DestructionMilestone3.style.borderColor = (Data.Destructions.gte(3)) ? "gray" : "red"
+    DestructionMilestone3.style.color = (Data.Destructions.gte(3)) ? "black" : "red"
 }
 
 function DestructionReset(force) {
