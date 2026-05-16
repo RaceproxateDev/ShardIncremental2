@@ -51,3 +51,15 @@ function ShowHideDivs(divId) {
         }
     }
 }
+
+function ShowHideUpgradeSections(sectionId) {
+    let upgS = document.getElementsByClassName("UpgradeSection")
+
+    for (let i = 0; i < upgS.length; i++) {
+        if (upgS[i].id === sectionId) {
+            upgS[i].style.display = "block"
+        } else {
+            upgS[i].style.display = "none"
+        }
+    }
+}
