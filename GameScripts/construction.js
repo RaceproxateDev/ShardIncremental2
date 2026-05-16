@@ -17,7 +17,7 @@ function updateHTML() {
     BuyableMoreShardsIIILvlTxt.textContent = `More Shards III [${format(Data.Buyables[3].amount)}/${format(Data.Buyables[3].max)}]`
     MoreShardsIIIPurchaseButton.innerHTML = (Data.Buyables[3].amount.lt(Data.Buyables[3].max)) ? `${format(Data.Buyables[3].price)} Construction Points` : "Max"
 
-    BuyableMoreConstructionILvlTxt.textContent = `More Construction I [${format(Data.Buyables[4].amount)}/${format(Data.Buyables[4].max)}]`
+    BuyableMoreConstructionILvlTxt.textContent = `Construct Better I [${format(Data.Buyables[4].amount)}/${format(Data.Buyables[4].max)}]`
     MoreConstructionIPurchaseButton.innerHTML = (Data.Buyables[4].amount.lt(Data.Buyables[4].max)) ? `${format(Data.Buyables[4].price)} Construction Points` : "Max"
 }
 
