@@ -86,10 +86,25 @@
 
         <div class="content" id="DestructionResetContent" style="display: none;">
             <h3 style="text-align: center; color: red;">Destroy</h3>
-            <p style="text-align: center; color: red;">Destroying will reset: shards, shard upgrades, construction points and construction upgrades</p>
-            <h3 id="CalcDestructionReqTxt" style="text-align: center;">You need 10 Construction Points to Destroy</h3>
+            
+            <section style="text-align: center;">
+                <button class="subtabs" id="DestructionResetSubtab" onclick="ShowHideSubDivs('DestructionResetLayer')" style="border-color: red; color: red;">Reset</button>
+                <button class="subtabs" id="DestructionMilestonesSubtab" onclick="ShowHideSubDivs('DestructionMilestones')" style="border-color: red; color: red;">Milestones</button>
+            </section>
 
-            <button class="ResetlayerButton" id="DestructionRLbutton" style="background-color: black; border: 2px solid red; color: red; width: 100%;" onclick="DestructionReset(false)">Destroy</button>
+            <div class="subcontent" id="DestructionResetLayer" style="display: none; text-align: center;">
+                <p style="text-align: center; color: red;">Destroying will reset: shards, shard upgrades, construction points and construction upgrades</p>
+                <h3 id="CalcDestructionReqTxt" style="text-align: center;">You need 10 Construction Points to Destroy</h3>
+
+                <button class="ResetlayerButton" id="DestructionRLbutton" style="border-color: red; color: red; width: 100%;" onclick="DestructionReset(false)">Destroy</button>
+            </div>
+
+            <div class="subcontent" id="DestructionMilestones" style="display: none; overflow-y: auto;">
+                <h2 class="Milestone" id="DestructionMilestone1" style="color: red; border-color: red;">
+                    1 Destruction<br>
+                    <p>+100% Shards per Destruction.</p>
+                </h2>
+            </div>
         </div>
     </body>
 
@@ -103,4 +118,5 @@
     <script src="GameScripts/UnlockNext.js"></script>
     <script src="utils/UnlockContent.js"></script>
     <script src="GameScripts/construction.js"></script>
+    <script src="GameScripts/Destruction.js"></script>
 </html>
