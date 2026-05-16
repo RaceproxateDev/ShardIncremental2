@@ -8,6 +8,8 @@ let DestructionMilestone2 = document.getElementById("DestructionMilestone2");
 let DestructionMilestone3 = document.getElementById("DestructionMilestone3");
 let DestructionMilestone4 = document.getElementById("DestructionMilestone4");
 let DestructionMilestone5 = document.getElementById("DestructionMilestone5");
+let DestructionMilestone6 = document.getElementById("DestructionMilestone6");
+let DestructionMilestone7 = document.getElementById("DestructionMilestone7");
 
 let ConstructionEnergyDisplayTxt = document.getElementById("ConstructionEnergyDisplayTxt");
 let ConstructionEnergyFirstBoosttxt = document.getElementById("ConstructionEnergyFirstBoosttxt")
@@ -46,6 +48,16 @@ function updateHtml() {
     DestructionMilestone5.style.borderColor = (Data.Destructions.gte(5)) ? "gray" : "red"
     DestructionMilestone5.style.color = (Data.Destructions.gte(5)) ? "black" : "red"
     DestructionMilestone5.style.display = (Data.Destructions.gte(4)) ? "block" : "none"
+
+    DestructionMilestone6.style.backgroundColor = (Data.Destructions.gte(6)) ? "red" : "black"
+    DestructionMilestone6.style.borderColor = (Data.Destructions.gte(6)) ? "gray" : "red"
+    DestructionMilestone6.style.color = (Data.Destructions.gte(6)) ? "black" : "red"
+    DestructionMilestone6.style.display = (Data.Destructions.gte(5)) ? "block" : "none"
+
+    DestructionMilestone7.style.backgroundColor = (Data.Destructions.gte(7)) ? "red" : "black"
+    DestructionMilestone7.style.borderColor = (Data.Destructions.gte(7)) ? "gray" : "red"
+    DestructionMilestone7.style.color = (Data.Destructions.gte(7)) ? "black" : "red"
+    DestructionMilestone7.style.display = (Data.Destructions.gte(6)) ? "block" : "none"
 
     ConstructionEnergyDisplayTxt.textContent = `You have ${format(Data.ConstructionEnergy)} Construction Energy [+${format(Data.ConstructionEnergyMult)}/s]`
     ConstructionEnergyFirstBoosttxt.textContent = `${format(CalcConstructionEnergyFirstBoost())}x Shards`
@@ -88,6 +100,8 @@ function GenConstructionEnergy() {
 
 function calcConstructionEnergyMult() {
     let mult = new OmegaNum(1)
+    if (Data.Destructions.gte(8)) mult = mult.times(OmegaNum.add(1, OmegaNum.div(Data.Destructions, 8)))
+
 
     Data.ConstructionEnergyMult = mult
     return mult

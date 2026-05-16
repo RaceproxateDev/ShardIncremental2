@@ -30,6 +30,7 @@ function calcShardMult() {
     if (Data.Destructions.gte(1)) mult = mult.times(OmegaNum.add(1, Data.Destructions))
     if (Data.Destructions.gte(3)) mult = mult.times(2)
     if (Data.ConstructionEnergy.gte(1)) mult = mult.times(CalcConstructionEnergyFirstBoost())
+    if (Data.Destructions.gte(6)) mult = mult.times(2.5)
 
     Data.shardMult = mult
     return mult
