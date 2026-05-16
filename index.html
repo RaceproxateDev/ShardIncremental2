@@ -91,7 +91,7 @@
             <section style="text-align: center;">
                 <button class="subtabs" id="DestructionResetSubtab" onclick="ShowHideSubDivs('DestructionResetLayer')" style="border-color: red; color: red;">Reset</button>
                 <button class="subtabs" id="DestructionMilestonesSubtab" onclick="ShowHideSubDivs('DestructionMilestones')" style="border-color: red; color: red;">Milestones</button>
-                <button class="subtabs" id="ConstructionEnergySubtab" onclick="ShowHideSubDivs('ConstructionEnergyContent')" style="border-color: orange; color: orange; width: auto;">Construction Energy</button>
+                <button class="subtabs" id="ConstructionEnergySubtab" onclick="ShowHideSubDivs('ConstructionEnergyContent')" style="border-color: orange; color: orange; width: auto; display: none;">Construction Energy</button>
             </section>
 
             <div class="subcontent" id="DestructionResetLayer" style="display: none; text-align: center;">
@@ -127,6 +127,15 @@
                     5 Destructions<br>
                     <p>Unlock Construction Energy</p>
                 </h3>
+            </div>
+
+            <div class="subcontent" id="ConstructionEnergyContent" style="display: none; text-align: center;">
+                <h2 style="color: orange;">Construction Energy</h2>
+                <h3 id="ConstructionEnergyDisplayTxt" style="color: orange;">You have 0 Construction Energy [+1/s]</h3>
+
+                <section style="text-align: center; border: 2px solid orange; border-radius: 5px;">
+                    <p id="ConstructionEnergyFirstBoosttxt" style="color: white;">1.00x Shards</p>
+                </section>
             </div>
         </div>
     </body>

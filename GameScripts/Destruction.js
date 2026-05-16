@@ -9,6 +9,9 @@ let DestructionMilestone3 = document.getElementById("DestructionMilestone3");
 let DestructionMilestone4 = document.getElementById("DestructionMilestone4");
 let DestructionMilestone5 = document.getElementById("DestructionMilestone5");
 
+let ConstructionEnergyDisplayTxt = document.getElementById("ConstructionEnergyDisplayTxt");
+let ConstructionEnergyFirstBoosttxt = document.getElementById("ConstructionEnergyFirstBoosttxt")
+
 function calcDestructionsBulk() {
     let bulk = new OmegaNum(1);
 
@@ -43,6 +46,9 @@ function updateHtml() {
     DestructionMilestone5.style.borderColor = (Data.Destructions.gte(5)) ? "gray" : "red"
     DestructionMilestone5.style.color = (Data.Destructions.gte(5)) ? "black" : "red"
     DestructionMilestone5.style.display = (Data.Destructions.gte(4)) ? "block" : "none"
+
+    ConstructionEnergyDisplayTxt.textContent = `You have ${format(Data.ConstructionEnergy)} Construction Energy [+${format(Data.ConstructionEnergyMult)}/s]`
+    ConstructionEnergyFirstBoosttxt.textContent = `${format(CalcConstructionEnergyFirstBoost())}x Shards`
 }
 
 function DestructionReset(force) {
@@ -71,7 +77,37 @@ function autobuyUpgrades() {
     }
 }
 
+function GenConstructionEnergy() {
+    let can = false 
+    if (Data.Destructions.gte(5)) can = true
+
+    if (can) {
+        Data.ConstructionEnergy = OmegaNum.add(Data.ConstructionEnergy, Data.ConstructionEnergyMult)
+    }
+}
+
+function calcConstructionEnergyMult() {
+    let mult = new OmegaNum(1)
+
+    Data.ConstructionEnergyMult = mult
+    return mult
+}
+
+function CalcConstructionEnergyFirstBoost() {
+    let exp = new OmegaNum(0.5)
+    let base = new OmegaNum(1)
+
+    let boost = Data.ConstructionEnergy.add(base).pow(exp)
+    return boost
+}
+
 setInterval(() => {
     updateHtml();
     autobuyUpgrades();
+    calcConstructionEnergyMult();
+    CalcConstructionEnergyFirstBoost();
 }, 100)
+
+setInterval(() => {
+    GenConstructionEnergy();
+}, 1000)
