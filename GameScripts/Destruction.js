@@ -54,9 +54,9 @@ function updateHtml() {
     DestructionMilestone6.style.color = (Data.Destructions.gte(6)) ? "black" : "red"
     DestructionMilestone6.style.display = (Data.Destructions.gte(5)) ? "block" : "none"
 
-    DestructionMilestone7.style.backgroundColor = (Data.Destructions.gte(7)) ? "red" : "black"
-    DestructionMilestone7.style.borderColor = (Data.Destructions.gte(7)) ? "gray" : "red"
-    DestructionMilestone7.style.color = (Data.Destructions.gte(7)) ? "black" : "red"
+    DestructionMilestone7.style.backgroundColor = (Data.Destructions.gte(8)) ? "red" : "black"
+    DestructionMilestone7.style.borderColor = (Data.Destructions.gte(8)) ? "gray" : "red"
+    DestructionMilestone7.style.color = (Data.Destructions.gte(8)) ? "black" : "red"
     DestructionMilestone7.style.display = (Data.Destructions.gte(6)) ? "block" : "none"
 
     ConstructionEnergyDisplayTxt.textContent = `You have ${format(Data.ConstructionEnergy)} Construction Energy [+${format(Data.ConstructionEnergyMult)}/s]`
