@@ -10,7 +10,7 @@
         <h2 id="ShardsTxt" style="text-align: center;">Shards: 0 [+1/s]</h2>
         <h3 style="text-align: center; color: gray; font-style: italic; font-weight: 500;" id="UnlockNextTxt">Get 1,000 Shards [0%]</h3>
 
-        <section style="overflow-x: auto; white-space: nowrap;">
+        <section style="overflow-x: auto;">
             <button id="SettingsTab" class="tabs" onclick="ShowHideDivs('Settings')">Settings</button>
             <button id="ShardUpgradesTab" class="tabs" onclick="ShowHideDivs('ShardUpgradesContent')">Shard Upgrades</button>
             <button id="ConstructionResetTab" class="tabs" onclick="ShowHideDivs('ConstructionResetContent')" style="display: none;">Construction</button>
@@ -41,6 +41,11 @@
                 <p>Doubles your shard gain</p>
                 <button class="UpgradePurchaseButton" id="MoreShardsIIPurchaseButton" onclick="buyUpg(2, 'shards', true)">100 Shards</button><br><br>
             </section>
+        </div>
+
+        <div class="content" id="ConstructionResetContent" style="display: none; text-align: center;">
+            <h3 style="text-align: center;">Construction</h3>
+            <button class="subtabs" id="ConstructionResetSubtab">Reset</button>
         </div>
     </body>
 
