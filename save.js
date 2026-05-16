@@ -213,6 +213,7 @@ function resetData() {
     if (confirm("Are you sure you want to reset your data?")) {
         localStorage.removeItem("contentData");
         preventSave = true
+        Data = JSON.parse(JSON.stringify(Template))
         location.reload();
     }
 }
