@@ -46,7 +46,7 @@ function constructReset(force) {
 function calcConstructionMult() {
     let mult = new OmegaNum(1)
     mult = mult.times(OmegaNum.add(1, Data.Buyables[4].amount))
-    if (Data.Destructions.gte(2)) mult = mult.times(OmegaNum.add(1, OmegaNum.div(Data.Destructions, 2)))
+    if (Data.Destructions.gte(2)) mult = mult.times(OmegaNum.add(1, OmegaNum.sub(Data.Destructions, 2)))
     if (Data.Destructions.gte(3)) mult = mult.times(2)
 
     Data.constructionMult = mult

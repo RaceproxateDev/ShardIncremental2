@@ -111,7 +111,7 @@ function GenConstructionEnergy() {
 
 function calcConstructionEnergyMult() {
     let mult = new OmegaNum(1)
-    if (Data.Destructions.gte(8)) mult = mult.times(OmegaNum.add(1, OmegaNum.div(Data.Destructions, 8)))
+    if (Data.Destructions.gte(8)) mult = mult.times(OmegaNum.add(1, OmegaNum.sub(Data.Destructions, 8)))
 
 
     Data.ConstructionEnergyMult = mult
