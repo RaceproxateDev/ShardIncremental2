@@ -2,6 +2,7 @@ let CalcDestructionReqTxt = document.getElementById("CalcDestructionReqTxt");
 let DestructionRLbutton = document.getElementById("DestructionRLbutton");
 
 // Milestones
+let DestructionDisplayTxt = document.getElementById("DestructionDisplayTxt")
 let DestructionMilestone1 = document.getElementById("DestructionMilestone1");
 
 function calcDestructionsBulk() {
@@ -15,6 +16,8 @@ function updateHtml() {
     DestructionRLbutton.textContent = (Data.constructionPoints.gte(Data.DestructionReq)) ? "Destroy" : "Meet the requirement first"
 
     // Milestones
+    DestructionDisplayTxt.textContent = `You made ${format(Data.Destructions)} Destructions`
+
     DestructionMilestone1.style.backgroundColor = (Data.Destructions.gte(1)) ? "red" : "black"
     DestructionMilestone1.style.borderColor = (Data.Destructions.gte(1)) ? "gray" : "red"
     DestructionMilestone1.style.color = (Data.Destructions.gte(1)) ? "black" : "red"
