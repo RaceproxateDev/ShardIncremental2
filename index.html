@@ -16,7 +16,9 @@
         
         <div class="content" id="Settings" style="display: none;">
             <h3 style="text-align: center;">Settings</h3>
-            <button class="SettingsButtons" onclick="ExportSave()" style="background-color: black; border: 1px solid blue; color: blue;" onclick="exportData()">Export Save</button>
+            <button class="SettingsButtons" style="background-color: black; border: 2px solid blue; color: blue;" onclick="exportData()">Export Save</button>
+            <button class="SettingsButtons" style="background-color: black; border: 2px solid lightblue; color: lightblue;" onclick="ImportData()">Import Save</button>
+            <button class="SettingsButtons" style="background-color: black; border: 2px solid red; color: red;" onclick="resetData()">Hard Reset</button>
         </div>
 
         <div class="content" id="ShardUpgradesContent" style="display: none;">
@@ -26,13 +28,13 @@
 
             <br><br>
             <section class="UpgradeSection" id="MoreShardsISection" style="display: none;">
-                <h3>More Shards I</h3>
+                <h3 id="BuyableMoreShardsILvlTxt">More Shards I [0/999]</h3>
                 <p>Increases shard gain by 100%.</p>
-                <button class="UpgradePurchaseButton">10 Shards</button><br><br>
+                <button class="UpgradePurchaseButton" id="MoreShardsIPurchaseButton" onclick="buyUpg(1, 'shards', true)">10 Shards</button><br><br>
             </section>
         </div>
     </body>
-
+    
     <link rel="stylesheet" href="Styles/mainGame.css">
 
     <script src="utils/OmegaNum.js"></script>

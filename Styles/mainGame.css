@@ -64,12 +64,6 @@ button:hover {
     border-radius: 5px;
 }
 
-.SettingsButtons:hover {
-    background-color: white;
-    color: black;
-    border: 2px solid gray;
-}
-
 @media only screen and (max-width: 1200px) {
     body {
         max-width: 1100px;
